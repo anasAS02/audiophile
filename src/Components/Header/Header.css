@@ -1,0 +1,186 @@
+.header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: rgb(25, 25, 25);
+    padding: 20px 40px;
+    position: relative;
+}
+
+.header::after{
+    content: '';
+    position: absolute;
+    width: calc(100% - 55px);
+    height: 1px;
+    background-color: rgba(119, 119, 119, 0.354);
+    bottom: 0;
+}
+
+.header .logo{
+    color: white;
+    font-size: 30px;
+}
+
+.header a{
+    text-decoration: none;
+    color: white;
+}
+
+.header .links a{
+    margin-left: 20px;
+    font-size: 18px;
+    transition: 0.3s;
+    text-transform: uppercase;
+}
+
+.header .links a:hover,
+.header .links .active{
+    color: orange;
+}
+
+.header .cart{
+    position: relative;
+    cursor: pointer;
+}
+
+.header .cart p{
+    position: absolute;
+    right: -4px;
+    top: -22px;
+    color: black;
+    font-size: 12px;
+    z-index: 1000;
+}
+.header .cart.active::after{
+    content: '';
+    position: absolute;
+    width: 15px;
+    height: 15px;
+    background-color: orange;
+    color: white;
+    border-radius: 50%;
+    right: -8px;
+    top: -10px;
+}
+
+.header .cart a i{
+    font-size: 20px;
+}
+
+.header .menu{
+    display: none;
+}
+
+.open{
+    visibility: hidden;
+}
+
+/* Start Responsive */
+
+@media(max-width: 900px){
+
+.open{
+    visibility: visible;
+}
+
+.header{
+    display: flex;
+    align-items: center;
+}
+
+.header::after{
+    width: calc(100% - 80px);
+}
+
+.header .links{
+    display: none;
+}
+
+.header .logo i{
+    font-size: 25px;
+    margin-right: 10px;
+    cursor: pointer;
+}
+
+.header .menu{
+    position: absolute;
+    transform: translateY(-200%);
+    transition: 0.3s;
+    margin-top: 20px;
+    background-color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 6px;
+    padding: 15px;
+    left: 0;
+    z-index: 1000;
+}
+
+.header .menu .close i{
+    position: absolute;
+    color: black;
+    font-size: 30px;
+    top: 10px;
+    left: 10px;
+    transition: 0.3s;
+}
+
+.header .menu .close i:hover{
+    color: red;
+}
+
+.header .menu.active{
+    transform: translateY(0%);
+}
+
+.header .menu .box{
+    margin-right: 15px;
+    text-align: center;
+    cursor: pointer;
+}
+
+.header .menu .box .text{
+    color: black;
+    background-color: #eee;
+    padding: 1px;
+    border-radius: 6px;
+    font-size: 16px;
+    margin-top: -200px;
+    padding-bottom: 15px;
+}
+
+.header .menu .box .text p{
+    padding-top: 15px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.header .menu .box .text a{
+    color: #777;
+    font-size: 14px;
+    margin-top: 10px;
+    transition: 0.3s;
+    padding: 5px;
+    border-radius: 6px;
+    width: fit-content;
+}
+
+.header .menu .box .text a:hover{
+    color: orange;
+    background-color: rgba(0, 0, 0, 0.146);
+}
+
+.header .menu .box .text a i{
+    font-size: 14px;
+    margin-left: 5px;
+    color: orange;
+}
+
+.header .menu img{
+    padding-bottom: 145px;
+    width: 85%;
+}
+}
+/* End Responsive */

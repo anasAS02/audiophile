@@ -1,0 +1,230 @@
+body{
+    background-color: rgba(238, 238, 238, 0.779);
+}
+
+.checkout .back{
+    color: gray;
+    font-size: 16px;
+    transition: 0.3s;
+    text-decoration: none;
+    padding: 25px;
+}
+
+.checkout .back:hover{
+    text-decoration: underline;
+}
+
+.checkout .all{
+    display: flex;
+    gap: 30px;
+    padding: 25px;
+    height: 100vh;
+}
+
+.checkout .details{
+    width: 75%;
+}
+
+.checkout .details form{
+    display: flex;
+    flex-flow: row wrap;
+    gap: 30px;
+}
+
+.checkout .details form .MuiFormControl-root.MuiTextField-root{
+    background-color: #eee;
+    padding: 5px;
+    width: 30%;
+    border-radius: 6px;
+}
+
+.checkout .payment{
+    width: 25%;
+    padding: 25px;
+    background-color: white;
+    border-radius: 6px;
+    display: flex;
+    flex-direction: column;
+    text-transform: uppercase;
+    color: gray;
+    font-size: 16px;
+    height: fit-content;
+}
+
+.checkout .payment p.head{
+    color: black;
+    font-weight: bold;
+    letter-spacing: 2px;
+    margin-top: 0;
+}
+
+.checkout .payment .products{
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    margin-top: -30px;
+    height: 100px;
+}
+
+.checkout .payment img{
+    width: 35%;
+    border-radius: 10px;
+    margin-left: -20px;
+}
+
+.checkout .payment .text{
+    display: flex;
+    align-items: center;
+}
+
+.checkout .payment .text p{
+    color: black;
+    font-weight: bold;
+    font-size: 16px;
+    display: flex;
+    flex-direction: column;
+}
+
+.checkout .payment .text p span{
+    font-weight: bold;
+    color: gray;
+}
+
+.checkout .payment .text span.quantity{
+    position: absolute;
+    right: 0;
+    font-size: 15px;
+}
+
+.checkout .payment .info span{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.checkout .payment .info span p{
+    font-weight: bold;
+    color: black;
+    font-size: 18px;
+}
+
+.checkout .payment .info span p.orange{
+    color: orange;
+}
+
+.checkout .pay-btn{
+    text-transform: uppercase;
+    padding: 10px 25px;
+    background-color: orange;
+    color: white;
+    outline: none;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.checkout .pay-btn:hover{
+    background-color: rgba(255, 166, 0, 0.849);
+}
+
+.done{
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%, -300%);
+    top: 50%;
+    background-color: lavenderblush;
+    border-radius: 6px;
+    padding: 25px 25px 0;
+    transition: 0.3s;
+}
+
+.done.active{
+    transform: translate(-50%, -50%);
+}
+
+.done .head i{
+    font-size: 30px;
+    color: orange;
+}
+
+.done .head p{
+    color: black;
+    line-height: 1.5;
+    font-weight: bold;
+    font-size: 25px;
+}
+
+.done .body{
+    display: flex;
+    flex-direction: column;
+    color: black;
+}
+
+.done .body p.p-body{
+    color: black;
+}
+
+.done .body .order{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+}
+
+.done .body .info{
+    display: flex;    
+    align-items: center;
+    gap: 20px;
+}
+
+.done .body .order .info img{
+    width: 25%;
+    border-radius: 10px;
+}
+
+.done .body .order .grand-total{
+    text-align: center;
+    font-size: 20px;
+}
+
+.done .body .order .grand-total p{
+    font-size: 18px;
+}
+
+
+/* Start Responsive */
+
+@media(max-width: 900px){
+    .header{
+        width: calc(100% - 40px);
+    }
+
+    .checkout .payment img{
+        width: 20%;
+    }
+
+    .checkout .all{
+        flex-direction: column;
+    }
+    .checkout .details{
+        padding: 10px;
+        width: 100%;
+    }
+    .checkout .payment{
+        width: 100%;
+        padding: 10px;
+    }
+    .checkout .payment-info{
+        gap: 20px;
+    }
+    .done .body .order .grand-total{
+        width: 120%;
+    }
+
+    .done.active{
+        width: calc(100% - 87px);
+    }
+}
+
+/* Start Responsive */

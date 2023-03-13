@@ -1,0 +1,94 @@
+a{
+    text-decoration: none;
+}
+
+.footer{
+    background-color: rgb(25, 25, 25);
+    padding: 25px;
+    position: relative;
+}
+
+.footer::before{
+    content: '';
+    position: absolute;
+    left: 30px;
+    top: 0;
+    width: 70px;
+    height: 3px;
+    background-color: orange;
+}
+
+.footer .head,
+.footer .body{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.footer .head a.logo{
+    color: white;
+    font-size: 30px;
+}
+
+.footer .head .links a{
+    color: white;
+    margin-right: 12px;
+    font-size: 20px;
+    transition: 0.3s;
+}
+
+.footer .head .links a:hover{
+    color: orange;
+}
+
+.footer .body p{
+    color: #ffffff80;
+    font-size: 14px;
+    line-height: 1.5;
+}
+
+.footer .body span{
+    display: flex;
+    justify-content: space-between;
+}
+
+.footer .body span i{
+    margin-right: 15px;
+    font-size: 25px;
+    color: white;
+    transition: 0.3s;
+}
+
+.footer .body span svig:hover{
+    color: orange;
+}
+
+.footer > p{
+    color: #ffffff80;
+    margin-bottom: 0;
+}
+
+/* Start Responsive */
+
+@media(max-width: 900px){
+    .footer .head{
+        align-items: normal;
+        flex-direction: column;
+        gap: 20px;
+    }
+    .footer .body{
+        align-items: flex-end;
+    }
+    .footer .head a.logo{
+        font-size: 25px;
+    }
+    .footer .head .links a{
+        font-size: 16px;
+    }
+    .footer .body p,
+    .footer > p{
+        font-size: 12px;
+    }
+}
+
+/* End Responsive */

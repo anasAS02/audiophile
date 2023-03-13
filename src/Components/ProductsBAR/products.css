@@ -1,0 +1,69 @@
+.con{
+    padding: 25px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.con .box img{
+    width: 40%;
+    margin-bottom: -50px;
+    position: relative;
+}
+
+.con .box{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+}
+.con .box .text{
+    padding: 15px;
+    border-radius: 6px;
+    background-color: #eee;
+    margin-right: 15px;
+    cursor: pointer;
+    width: 200px;
+    height: 100px;
+}
+
+.con .box .text p{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-transform: uppercase;
+    margin-left: 8px;
+}
+
+.con .box .text p a{
+    text-decoration: none;
+    margin-top: 10px;
+    color: gray;
+    transition: 0.3s;
+}
+
+.con .box .text p a:hover{
+    color: orange;
+}
+
+.con .box .text p a i{
+    margin-left: 10px;
+    color: orange;
+}
+
+/* Start Responsive */
+
+@media(max-width: 767px){
+    .con{
+        flex-direction: column;
+        gap: 40px;
+    }
+    
+    .con .box img{
+        margin-bottom: -45px;
+    }
+}
+
+/* End Responsive */

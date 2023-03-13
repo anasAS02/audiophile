@@ -1,0 +1,46 @@
+.container{
+    display: flex;
+    padding: 25px;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.container .text h2{
+    font-size: 50px;
+    letter-spacing: 5px;
+}
+
+.container .text h2 span{
+    color: #d87d4a;
+}
+
+.container .text p{
+    color: gray;
+    line-height: 1.5;
+}
+
+.container .img{
+    margin-left: 10px;
+}
+
+.container .img img{
+    width: 530px;
+    height: 530px;
+    border-radius: 16px;
+    filter: grayscale(1);
+}
+
+/* Start Responsive */
+
+@media(max-width:900px){
+    .container{
+        flex-direction: column-reverse;
+    }
+    
+    .container img{
+        width: 100% !important;
+        height: 100% !important;
+    }
+}
+
+/* End Responsive */

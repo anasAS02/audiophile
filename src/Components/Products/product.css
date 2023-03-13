@@ -1,0 +1,180 @@
+.pro{
+    padding: 0;
+    padding-top: 70px;
+}
+
+.pro .back{
+    color: gray;
+    font-size: 20px;
+    transition: 0.3s;
+    text-decoration: none;
+    padding: 25px;
+}
+
+.pro .back:hover{
+    text-decoration: underline;
+}
+
+.pro .head{
+    padding: 25px;
+    display: flex;
+    justify-content: space-between;
+    padding-top: 40px;
+}
+
+.pro .head .image img{
+    width: 100%;
+    border-radius: 10px;
+}
+
+.pro .head .text{
+    margin-left: 70px;
+    display: flex;
+    flex-direction: column;
+}
+
+.pro .head .text h2{
+    font-size: 35px;
+    margin-bottom: 0;
+}
+
+.pro .head .text p{
+    color: gray;
+    font-size: 16px;
+}
+
+.pro .head .text span{
+    font-weight: bold;
+    font-size: 18px;
+}
+
+.pro .head .btns{
+    margin-top: 30px;
+    display: flex;
+    align-items: center;
+    gap: 40px;
+}
+
+.pro .head .btns span{
+    background-color: #eee;
+    padding: 10px;
+    border-radius: 6px;
+    font-size: 16px;
+}
+
+.pro .head .btns span i{
+    font-size: 12px;
+    cursor: pointer;
+    transition: 0.3s;
+    margin: 0 12px;
+    color: gray;
+}
+
+.pro .head .btns span i:hover{
+    color: orange;
+}
+
+.pro .head .btns button{
+    padding: 15px 40px;
+    border-radius: 6px;
+    background-color: orange;
+    outline: none;
+    border: none;
+    cursor: pointer;
+    color: white;
+    transition: 0.3s;
+}
+
+.pro .head .btns button:hover{
+    background-color: rgba(255, 166, 0, 0.745);
+}
+
+.pro .info{
+    padding: 25px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.pro .info .features{
+    width: 60%;
+}
+
+.pro .info .features h2,
+.pro .in-the-box h2{
+    text-transform: uppercase;
+    font-size: 35px;
+}
+
+.pro .info .features p{
+    font-size: 16px;
+}
+.pro .info .features p,
+.pro .in-the-box span p{
+    color: gray;
+}
+
+.pro .in-the-box{
+    width: 40%;
+} 
+
+.pro .in-the-box span{
+    display: flex;
+    align-items: center;
+    color: orange;
+    font-size: 18px;
+}
+
+.pro .in-the-box span p{
+    margin-left: 10px;
+    font-size: 16px;
+}
+
+.pro .images{
+    padding: 25px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.pro .images .left{
+    width: 50%;
+    padding-right: 50px;
+}
+
+.pro .images .left img,
+.pro .images .right img{
+    border-radius: 10px;
+}
+
+.pro .images .right{
+    width: 100%;
+}
+
+/* Strat Responsive */
+
+@media(max-width: 900px){
+    .pro .head,
+    .pro .info{
+        flex-direction: column;
+    }
+    .pro .info .features,
+    .pro .info .in-the-box{
+        width: 100%;
+    }
+    .pro .images{
+        padding: 0;
+    }
+    .pro .images img{
+        width: 100%;
+    }
+    .pro .head .btns span{
+        display: flex;
+        align-items: center;
+    }
+    .pro .head .btns button{
+        padding: 15px;
+    }
+}
+
+/* End Responsive */

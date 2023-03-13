@@ -1,0 +1,17 @@
+.title{
+    text-align: center;
+    background-color: rgb(25, 25, 25);
+    padding: 25px;
+}
+.title h1{
+    font-size: 40px;
+    color: white;
+    letter-spacing: 5px;
+    text-transform: uppercase;
+}
+
+@media(max-width: 900px){
+    .title{
+        width: calc(100% - 10px);
+    }
+}

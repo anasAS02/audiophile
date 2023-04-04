@@ -60,7 +60,7 @@ export default function Checkout(){
                                         setDone(true);
                                         setTimeout(() => {
                                             setDone(false);
-                                            window.location.replace('/cart');
+                                            window.location.replace('/');
                                         }, 3000)
                                     }else{
                                         setDone(false);

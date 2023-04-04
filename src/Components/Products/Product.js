@@ -41,7 +41,7 @@ export default function Product(props){
             <div className="btns">
                 <span>
                     <span onClick={() => dispatch(deleteFromCart(products))}>
-                    <i className="fa-solid fa-minus"></i>
+                    <i className="fa-solid fa-trash"></i>
                     </span>
                         {quantity.slice(-1)}
                     <span onClick={() => dispatch(addToCart(products))}>

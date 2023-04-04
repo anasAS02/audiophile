@@ -1,0 +1,29 @@
+{
+  "files": {
+    "main.css": "/audiophile/static/css/main.9231ae65.css",
+    "main.js": "/audiophile/static/js/main.5cdfe331.js",
+    "static/js/787.76c23a75.chunk.js": "/audiophile/static/js/787.76c23a75.chunk.js",
+    "static/media/fa-solid-900.ttf": "/audiophile/static/media/fa-solid-900.b1a653db79258eeccc5d.ttf",
+    "static/media/1.png": "/audiophile/static/media/1.6e8830d475e04b7b9627.png",
+    "static/media/fa-brands-400.ttf": "/audiophile/static/media/fa-brands-400.450a5c898f0b184b968b.ttf",
+    "static/media/fa-solid-900.woff2": "/audiophile/static/media/fa-solid-900.41c0f706d8ce93933771.woff2",
+    "static/media/fa-brands-400.woff2": "/audiophile/static/media/fa-brands-400.3ac6859b28be946745f9.woff2",
+    "static/media/fa-regular-400.ttf": "/audiophile/static/media/fa-regular-400.3cd9fb8fcec4ad0f99d4.ttf",
+    "static/media/model.jpg": "/audiophile/static/media/model.d52936a273c40df3e7fc.jpg",
+    "static/media/landing.jpg": "/audiophile/static/media/landing.13f7f18f9ae7b105ca12.jpg",
+    "static/media/2.png": "/audiophile/static/media/2.fbd401d9c735a217286f.png",
+    "static/media/3.png": "/audiophile/static/media/3.bbb1a70b6ebc42d18df7.png",
+    "static/media/fa-regular-400.woff2": "/audiophile/static/media/fa-regular-400.1f3772178d9e5bed38a6.woff2",
+    "static/media/2.jpg": "/audiophile/static/media/2.3d4940e89ebadd9beb50.jpg",
+    "static/media/fa-v4compatibility.ttf": "/audiophile/static/media/fa-v4compatibility.e314b618134d5be20996.ttf",
+    "static/media/fa-v4compatibility.woff2": "/audiophile/static/media/fa-v4compatibility.4ee7f902d88f819e251c.woff2",
+    "index.html": "/audiophile/index.html",
+    "main.9231ae65.css.map": "/audiophile/static/css/main.9231ae65.css.map",
+    "main.5cdfe331.js.map": "/audiophile/static/js/main.5cdfe331.js.map",
+    "787.76c23a75.chunk.js.map": "/audiophile/static/js/787.76c23a75.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.9231ae65.css",
+    "static/js/main.5cdfe331.js"
+  ]
+}

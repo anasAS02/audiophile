@@ -12,7 +12,7 @@ export default function Product(props){
     const [products, setProducts] = useState([]);
 
     useEffect(() => {
-        fetch(`https://astalaat02.github.io/api/db.json`)
+        fetch(`https://anasAS02.github.io/api/db.json`)
             .then((res) => res.json())
             .then((data) => setProducts(data[props.api][props.id]))
     }, []);

@@ -1,31 +1,29 @@
-import { useEffect, useState } from "react";
-import { deleteFromCart, addToCart, deleteItem } from "../../rtk/Slices/cart-slice";
-import { useSelector, useDispatch } from "react-redux";
+import "./product.css";
 import { Link } from "react-router-dom";
+import { useEffect, useState } from "react";
+import { useSelector, useDispatch } from "react-redux";
+import { deleteFromCart, addToCart } from "../../rtk/Slices/cart-slice";
 import Model from "../Model/Model";
 import ProductsBar from "../ProductsBAR/ProductsBar";
 import Footer from "../Footer/Footer";
-import "./product.css";
 
 export default function Product(props){
-
     const [products, setProducts] = useState([]);
-
+    const dispatch = useDispatch();
+    const cart = useSelector((state) => state.cart);
+    let quantity = 0;
+    
     useEffect(() => {
         fetch(`https://anasAS02.github.io/api/db.json`)
             .then((res) => res.json())
             .then((data) => setProducts(data[props.api][props.id]))
     }, []);
-
     
-    const cart = useSelector((state) => state.cart);
-
-    
-    const quantity = cart.map((products) => (
-        (products.quantity)
-    ))
-
-    const dispatch = useDispatch();
+    for(let i = 0; i < cart.length; i++){
+        if(cart[i].id == products.id){
+            quantity = cart[i].quantity;
+        }
+    }
 
     return(
         <div className="pro">
@@ -43,7 +41,7 @@ export default function Product(props){
                     <span onClick={() => dispatch(deleteFromCart(products))}>
                     <i className="fa-solid fa-trash"></i>
                     </span>
-                        {quantity.slice(-1)}
+                    {quantity}
                     <span onClick={() => dispatch(addToCart(products))}>
                     <i className="fa-solid fa-plus"></i>
                     </span>

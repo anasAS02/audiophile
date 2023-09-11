@@ -2,6 +2,15 @@ body{
     background-color: rgba(238, 238, 238, 0.779);
 }
 
+.h2{
+    color: red;
+    font-size: 30px;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+}
+
 .checkout .back{
     color: gray;
     font-size: 16px;
@@ -196,6 +205,10 @@ body{
 /* Start Responsive */
 
 @media(max-width: 900px){
+    .h2{
+        font-size: 20px;
+    }
+
     .header{
         width: calc(100% - 40px);
     }

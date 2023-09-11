@@ -11,7 +11,6 @@ import ProductFive from "./Components/Products/showProduct/ProductFive";
 import ProductSix from "./Components/Products/showProduct/ProductSix";
 import Cart from "./Pages/Cart/Cart";
 import Checkout from "./Pages/Checkout/Checkout";
-import { ReactDOM } from "react";
 import { Routes, Route } from 'react-router-dom';
 
 function App() {

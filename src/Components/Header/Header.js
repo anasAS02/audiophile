@@ -1,31 +1,21 @@
-import { Link, NavLink } from "react-router-dom";
 import "./Header.css";
+import { Link, NavLink } from "react-router-dom";
 import pOne from "../../imgs/1.png";
 import pTwo from "../../imgs/2.png";
 import pThree from "../../imgs/3.png";
-
 import { useState, useEffect } from "react";
-import { useSelector, useDispatch } from "react-redux";
-
+import { useSelector } from "react-redux";
 
 export default function Header(){
   
-  const [isTheCartActive, setIsTheCartActive] = useState(false);
-  
-  const activeCart = () => {
-    setIsTheCartActive(true);
-  }
-
-  
   const cart = useSelector((state) => state.cart);  
+  const [isMenuActive, setIsMenuActive] = useState(false);
+  const [isTheCartActive, setIsTheCartActive] = useState(false);
 
   useEffect(() => {
     {cart.length > 0 && setIsTheCartActive(true)}
   }, [cart.length])
   
-  
-  const [isMenuActive, setIsMenuActive] = useState(false);
-
   const openNav = () => {
     setIsMenuActive(true);
   }

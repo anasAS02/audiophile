@@ -1,5 +1,5 @@
-import pic from "./imgs/model.jpg";
 import "./model.css";
+import pic from "./imgs/model.jpg";
 
 export default function Model(){
     return(

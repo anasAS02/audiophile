@@ -2,29 +2,23 @@ import "./checkout.css";
 import { Link } from "react-router-dom";
 import { useState } from "react";
 import { useSelector } from "react-redux";
-
 import { Form, Field, Formik } from "formik";
 import * as Yup from "yup";
 import { Button, Card, CardContent, TextField } from "@material-ui/core";
 
-
 export default function Checkout(){
-
-
+    const [done, setDone] = useState(false);
     const cart = useSelector((state) => state.cart);
-
     const totalPrice = cart.reduce((acc, products) => {
         acc += products.price * products.quantity;
         return acc;
     }, 0)
-
     const shipping = 50;
     const vat = totalPrice / 100 * 10;
     const total = shipping + vat + totalPrice;
 
-    const [done, setDone] = useState(false);
-    
     return(
+    cart.length > 0 ?
     <div className="checkout">
         <Link className="back" to="/cart">Go Back</Link>
         <div className="all">
@@ -202,13 +196,17 @@ export default function Checkout(){
                         <div className="text">
                             <p>
                                 {product.title}
-                                <span>{totalPrice} $</span>
+                                <span>{product.price * product.quantity} $</span>
                             </p>
                         </div>
                     </div>
                     </>
                 ))}
                     <div className="info">
+                        <span>
+                        Total price
+                            <p>{totalPrice} $</p>
+                        </span>
                         <span>
                         Shipping
                             <p id="shippingPrice">{shipping} $</p>
@@ -258,4 +256,6 @@ export default function Checkout(){
                         </div>
                 </div>
     </div>
+    :
+    <h2 className='h2'>Your cart is empty</h2>
 )};

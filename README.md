@@ -1,5 +1,3 @@
 # Audiophile
 
-# Built by: (React JS).
-
-# Libraries: Font Awesome, Formik, Material UI.
+# Built by: (React JS, MongoDB, NodeJS, ExpressJS).

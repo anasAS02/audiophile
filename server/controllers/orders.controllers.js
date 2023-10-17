@@ -10,6 +10,14 @@ const getAllOrders = asyncWrapper(
     }
 )
 
+const getMyOrders = asyncWrapper(
+    async(req, res) => {
+        const userEmail = req.body.email;
+        const orders = await Order.find({email: userEmail},{"__v": false});
+        res.status(200).json({status: httpStatusText.SUCCESS, data: {orders}});
+    }
+)
+
 const createOrder = asyncWrapper(
     async(req, res, next) => {
         const {items, totalPrice, email, img} = req.body;
@@ -50,5 +58,6 @@ const createOrder = asyncWrapper(
 
 module.exports = {
     getAllOrders,
+    getMyOrders,
     createOrder
 };

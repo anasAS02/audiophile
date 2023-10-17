@@ -8,6 +8,9 @@ const userRoles = require('../utils/userRoles');
 router.route('/')
                 .get(verifyToken, allowedTo(userRoles.ADMIN), ordersControllers.getAllOrders);
 
+router.route('/myOrders')
+                .get(verifyToken, allowedTo(userRoles.USER), ordersControllers.getMyOrders);
+
 router.route('/create')
                 .post(ordersControllers.createOrder);
 

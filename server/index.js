@@ -7,6 +7,8 @@ app.use(cors());
 const httpStatusText = require('./utils/httpStatusText')
 const mongoose = require('mongoose');
 const url = process.env.MONGO_URL;
+const cookieParser = require('cookie-parser');
+app.use(cookieParser());
 
 mongoose.connect(url).then(() => {
     console.log('mongodb server is connected');

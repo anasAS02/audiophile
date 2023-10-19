@@ -11,8 +11,8 @@ router.route('/signup')
 router.route('/login')
                 .post(authControllers.login);
 
-router.route('/logout')
-                .post(authControllers.logout);
+router.route('/refresh')
+                .post(authControllers.refreshToken);
 
 router.route('/')
                 .get(verifyToken, allowedTo(userRoles.ADMIN), authControllers.getAllUsers);
@@ -21,7 +21,7 @@ router.route('/addUser')
                 .post(verifyToken, allowedTo(userRoles.ADMIN), authControllers.addUser);
 
 router.route('/deleteUser')
-                .delete(verifyToken, allowedTo(userRoles.ADMIN), authControllers.deleteUser);
+                .post(verifyToken, allowedTo(userRoles.ADMIN), authControllers.deleteUser);
 
 
 module.exports = router;

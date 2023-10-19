@@ -1,0 +1,168 @@
+.dashboard{
+    padding: 25px;
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+}
+
+.dashboard .control{
+    width: 50%;
+    display: flex;
+    gap: 10px;
+    padding: 20px;
+    border-radius: 6px;
+}
+
+.dashboard .control button{
+    width: 100%;
+    background-color: black;
+    padding: 10px;
+    cursor: pointer;
+    color: white;
+    border-radius: 6px;
+    transition: 0.3s;
+    border: none;
+    outline: none;
+}
+
+.dashboard .control button:hover,
+.dashboard .control button.active{
+    background-color: yellow;
+    color: black;
+}
+
+.dashboard .users{
+    padding: 25px;
+    border-radius: 6px;
+    width: 75%;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+.dashboard,
+.dashboard .control,
+.dashboard .users,
+.dashboard .users .add-user form{
+    align-items: center;
+    justify-content: center;
+}
+
+@media(max-width: 767px){
+    .dashboard .users{
+        flex-direction: column;
+    }
+}
+
+.dashboard .users .add-user form{
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.dashboard .users .add-user form select,
+.dashboard .users .add-user form button,
+.dashboard .users .add-user form input {
+    width: fit-content;
+    outline: none;
+}
+
+.dashboard .users .add-user form input{
+    background-color: rgba(213, 213, 213, 0.65);
+}
+
+.dashboard .users .add-user form input,
+.dashboard .users .add-user form button{
+    padding: 10px;
+    border-radius: 6px;
+    border: none;
+}
+
+.dashboard .users .add-user form button{
+    cursor: pointer;
+    background-color: black;
+    color: white;
+    transition: 0.3s;
+}
+
+.dashboard .users .add-user form button:hover{
+    background-color: rgba(0, 0, 0, 0.879);
+}
+
+.dashboard table{
+    margin-top: 0;
+    position: relative;
+    width: 100%;
+}
+
+.dashboard .del-user{
+    padding: 5px;
+    font-size: 14px;
+    text-transform: none;
+}
+
+.dashboard .err{
+    color: red;
+}
+
+.dashboard .success{
+    color: green;
+}
+
+.dashboard .err,
+.dashboard .success{
+    background-color: black;
+    border-radius: 6px;
+    padding: 5px;
+}
+
+.dashboard .orders{
+    width: 100%;
+}
+
+.dashboard .data{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    margin-bottom: 15px;
+}
+
+.dashboard .total{
+    position: relative;
+    cursor: pointer;
+    padding: 25px;
+    background-color: black;
+    border-radius: 16px;
+    color: white;
+    transition: 0.3s;
+}
+
+.dashboard .total h2{
+    z-index: 1;
+    position: relative;
+}
+
+.dashboard .total::after{
+    position: absolute;
+    content: '';
+    right: 0;
+    top: 0;
+    width: 0;
+    height: 100%;
+    background-color: yellow;
+    border-radius: 16px;
+    transition: 0.3s;
+}
+
+.dashboard .total:hover{
+    color: black;
+}
+
+.dashboard .total:hover::after{
+    width: 100%;    
+}
+
+.dashboard .total h2:last-child{
+    text-align: right;
+}

@@ -1,0 +1,92 @@
+.cart-h2{
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: red;
+    font-size: 30px;
+}
+
+.cart-h2 a{
+    color: black;
+}
+
+table{
+    position: absolute;
+    top: 50%;
+    background-color: #222;
+    width: 100%;
+    padding: 25px;
+    text-align: center;
+    color: white;
+}
+
+table img{
+    width: 100px;
+}
+
+table button,
+.btn{
+    padding: 10px 25px;
+    color: white;
+    transition: 0.3s;
+    cursor: pointer;
+    border-radius: 6px;
+    text-transform: uppercase;
+    outline: none;
+    border: none;
+}
+
+table button{
+    background-color: red;
+}
+
+.btn{
+    background-color: green;
+    position: absolute;
+    top: 45.7%;
+    right: 0;
+}
+
+table button:hover{
+    background-color: rgba(255, 0, 0, 0.724);
+}
+
+.btn:hover{
+    background-color: rgba(0, 128, 0, 0.671);
+}
+
+table thead td{
+    padding: 10px;
+    border-radius: 6px;
+    margin-right: 100px;
+}
+
+/* Start Responsive */
+
+@media(max-width: 780px){
+    .cart-h2{
+        font-size: 18px;
+    }
+    table{
+        font-size: 14px;
+    }
+    table{
+        width: 100%;
+    }
+    table img{
+        width: 75%;   
+    }
+    .btn{
+        top: 46.7%;
+        right: -40px;
+    }
+    .btn,
+    table button{
+        padding: 5px;
+    }
+    table{
+        width: 113%;
+    }
+}
+
+/* End Responsive */

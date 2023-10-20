@@ -28,7 +28,7 @@ const signUp = asyncWrapper(
             role
         });
         
-        const token = jwt.sign({email: newUser.email, id: newUser._id, role: newUser.role}, process.env.JWT_SECRET_KEY, {expiresIn: '1h'});
+        const token = jwt.sign({email: newUser.email, id: newUser._id, role: newUser.role}, process.env.JWT_SECRET_KEY, {expiresIn: '1hr'});
         newUser.token = token;
         await newUser.save();
         res.status(201).json({status: httpStatusText.SUCCESS, data: {token, email: newUser.email, role: user.role}})
@@ -59,7 +59,7 @@ const login = asyncWrapper(
         }
 
         if(user && matchedPassword){
-            const token = await jwt.sign({email: user.email, id: user._id, role: user.role}, process.env.JWT_SECRET_KEY, {expiresIn: '1h'});
+            const token = await jwt.sign({email: user.email, id: user._id, role: user.role}, process.env.JWT_SECRET_KEY, {expiresIn: '1hr'});
             user.token = token;
             res.status(200).json({status: httpStatusText.SUCCESS, data: {token, email: user.email, role: user.role}})
         }
@@ -74,7 +74,7 @@ const refreshToken = asyncWrapper(
                 if(err){
                     if(err.name === 'TokenExpiredError'){
                     const decoded = jwt.decode(token);
-                    const newToken = jwt.sign({email: decoded.email, id: decoded._id, role: decoded.role}, process.env.JWT_SECRET_KEY, {expiresIn: '1h'});
+                    const newToken = jwt.sign({email: decoded.email, id: decoded._id, role: decoded.role}, process.env.JWT_SECRET_KEY, {expiresIn: '1hr'});
                     return res.status(200).json({token: newToken});
                 }
             }
@@ -117,7 +117,7 @@ const addUser = asyncWrapper(
             role
         });
         
-        const token = jwt.sign({email: newUser.email, id: newUser._id, role: newUser.role}, process.env.JWT_SECRET_KEY, {expiresIn: '1h'});
+        const token = jwt.sign({email: newUser.email, id: newUser._id, role: newUser.role}, process.env.JWT_SECRET_KEY, {expiresIn: '1hr'});
         newUser.token = token;
         await newUser.save();
         const users = await User.find();

@@ -4,13 +4,13 @@ import Headphones from './Pages/Headphones/Headphones.js';
 import Speakers from './Pages/Speakers/Speakers';
 import Earphones from './Pages/Earphones/Earphones.js';
 import Cart from "./Pages/Cart/Cart";
-import Checkout from "./Pages/Checkout/Checkout";
 import Signup from './Pages/Auth/Signup/Signup.js';
 import Login from './Pages/Auth/Login/Login.js';
 import Product from './Components/Products/Product.js';
 import Dashboard from './Pages/Dashboard/Dashboard.js';
 import { Routes, Route } from 'react-router-dom';
-import MyOrders from './Pages/Auth/Orders/MyOrders.js';
+import MyOrders from './Pages/Orders/MyOrders.js';
+import Success from './Pages/Orders/Success.js';
 
 function App() {
   return (
@@ -26,11 +26,11 @@ function App() {
         <Route />
         <Route path='products/:productId' element={<Product />}/>
         <Route path='/Cart' element={<Cart />}/>
-        <Route path='/checkout' element={<Checkout />}/>
         <Route path='/signup' element={<Signup />}/>
         <Route path='/login' element={<Login />}/>
         <Route path='/dashboard' element={<Dashboard />}/>
         <Route path='/my-orders' element={<MyOrders />}/>
+        <Route path='/success' element={<Success />}/>
       </Routes>
     </div>
   );

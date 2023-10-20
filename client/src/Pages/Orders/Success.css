@@ -1,0 +1,67 @@
+.success{
+    margin-top: 100px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: lavenderblush;
+    border-radius: 6px;
+    padding: 25px 25px 0;
+    transition: 0.3s;
+}
+
+.success .head i{
+    font-size: 30px;
+    color: orange;
+}
+
+.success .head p{
+    color: black;
+    line-height: 1.5;
+    font-weight: bold;
+    font-size: 25px;
+}
+
+.success .body{
+    display: flex;
+    flex-direction: column;
+    color: black;
+}
+
+.success .body p.p-body{
+    color: black;
+}
+
+.success .body .order{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+}
+
+.success .body .info{
+    display: flex;    
+    align-items: center;
+    gap: 20px;
+}
+
+.success .body .order .info img{
+    width: 25%;
+    border-radius: 10px;
+}
+
+.success .body .order .grand-total{
+    text-align: center;
+    font-size: 20px;
+}
+
+.success .body .order .grand-total p{
+    font-size: 18px;
+}
+
+@media(max-width: 767px){
+    .success{
+        width: calc(100% - 87px);
+        margin-top: 0px;
+    }
+}

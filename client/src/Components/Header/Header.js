@@ -15,21 +15,30 @@ export default function Header(){
   const token = Cookies.get('token');
   const {isLoggedIn, setIsLoggedIn} = useAuth();
   
-  const refreshToken = () => {
-    axios.post(REFRESH_TOKEN, {token}).then((data) => Cookies.set('token', data.data.token))
-  };
   
   useEffect(() => {
+    const refreshToken = () => {
+      axios.post(REFRESH_TOKEN, {token}).then((data) => Cookies.set('token', data.data.token))
+    };
+
     const checkToken = () => {
       if(token){
         setIsLoggedIn(true);
-        refreshToken();
       }else{
         setIsLoggedIn(false);
       }
     }
-    
+
     checkToken();
+
+    const refreshInterval = setInterval(() => {
+      refreshToken();
+    }, 3480000);
+  
+    return () => {
+      clearInterval(refreshInterval);
+    };
+
   }, [isLoggedIn, setIsLoggedIn])
 
   const cart = useSelector((state) => state.cart.cartItems);
@@ -57,6 +66,8 @@ export default function Header(){
     Cookies.remove('token')
     Cookies.remove('email')
     Cookies.remove('role')
+    localStorage.removeItem('cartItems');
+    localStorage.removeItem('totalAmount');
     window.location.pathname = '/';
   }
 

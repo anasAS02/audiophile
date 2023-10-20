@@ -2,7 +2,7 @@ const mongoose = require('mongoose')
 
 const orderItemSchema = mongoose.Schema({
     title: String,
-    img: String,
+    mainImg: String,
     quantity: Number,
     price: Number
 }, {_id: false });
@@ -10,7 +10,7 @@ const orderItemSchema = mongoose.Schema({
 const orderSchema = mongoose.Schema({
     email: String,
     items: [orderItemSchema],
-    totalPrice: {
+    totalAmount: {
       type: Number,
       required: true
     }

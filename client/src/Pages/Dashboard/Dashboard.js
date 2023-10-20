@@ -84,10 +84,15 @@ export default function Dashboard(){
         Cookies.remove('token')
         Cookies.remove('email')
         Cookies.remove('role')
+        localStorage.removeItem('cartItems');
+        localStorage.removeItem('totalAmount');
         window.location.pathname = '/';
       }
 
-      const totalPrice = 7500;
+      const totalProfit = orders.reduce((acc, order) => {
+        acc += order.totalAmount;
+        return acc;
+      }, 0);
     return(
         <div className='dashboard'>
             <div className='control'>
@@ -181,14 +186,14 @@ export default function Dashboard(){
                         </div>
                         <div className='total'>
                             <h2>Total profit: </h2>
-                            <h2>{totalPrice}$</h2>
+                            <h2>{totalProfit}$</h2>
                         </div>
                     </div>
                     <Table striped>
                         <thead>
                             <tr>
                             <th>#</th>
-                            <th>Email</th>
+                            <th>User</th>
                             <th>Items</th>
                             <th>Date</th>
                             <th>Total price</th>
@@ -199,9 +204,9 @@ export default function Dashboard(){
                                 <tr key={order._id}>
                                 <td>{++i}</td>
                                 <td>{order.email}</td>
-                                <td>{order.items.map((item) => <p>{item.title}</p>)}</td>
+                                <td>{order.items.map((item, i) => <p key={i}>{item.title} <span style={{color: 'yellow'}}>x{item.quantity}</span></p>)}</td>
                                 <td>{order.createdAt.split('T')[0]}</td>
-                                <td>{order.totalPrice}$</td>
+                                <td>{order.totalAmount}$</td>
                                 </tr>
                             ))}
                         </tbody>

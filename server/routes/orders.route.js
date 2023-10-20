@@ -9,10 +9,13 @@ router.route('/')
                 .get(verifyToken, allowedTo(userRoles.ADMIN), ordersControllers.getAllOrders);
 
 router.route('/myOrders')
-                .get(verifyToken, ordersControllers.getMyOrders);
+                .post(verifyToken, ordersControllers.getMyOrders);
 
 router.route('/create')
-                .post(ordersControllers.createOrder);
+                .post(verifyToken, ordersControllers.createOrder);
+
+router.route('/save')
+                .post(verifyToken, ordersControllers.saveOrder);
 
 
 module.exports = router;

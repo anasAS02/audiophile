@@ -14,4 +14,6 @@ export const GET_USERS = `${BASE_URL}auth`;
 export const ADD_USER = `${BASE_URL}auth/addUser`;
 export const DELETE_USER = `${BASE_URL}auth/deleteUser`;
 export const GET_ORDERS = `${BASE_URL}orders`;
+export const CREATE_ORDER = `${BASE_URL}orders/create`;
+export const SAVE_ORDER = `${BASE_URL}orders/save`;
 export const MY_ORDERS = `${BASE_URL}orders/myOrders`;

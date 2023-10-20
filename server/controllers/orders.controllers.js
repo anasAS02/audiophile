@@ -18,46 +18,69 @@ const getMyOrders = asyncWrapper(
     }
 )
 
-const createOrder = asyncWrapper(
-    async(req, res, next) => {
-        const {items, totalPrice, email, img} = req.body;
+const stripe = require("stripe")(process.env.STRIPE_SECRET_KEY)
 
-        if (!items || !Array.isArray(items) || items.length === 0 || !totalPrice || !email) {
-            const err = appError.create('Invalid request data', 400, httpStatusText.ERROR);
+const createOrder = asyncWrapper(async (req, res, next) => {
+    try {
+        const session = await stripe.checkout.sessions.create({
+            payment_method_types: ["card"],
+            mode: "payment",
+            submit_type: "auto",
+            line_items: req.body.items.map(item => {
+                return {
+                    price_data: {
+                        currency: "usd",
+                        product_data: {
+                            name: item.title,
+                        },
+                        unit_amount: item.price * 100,
+                    },
+                    quantity: item.quantity,
+                }
+            }),
+            success_url: `http://localhost:3000/success`,
+            cancel_url: `http://localhost:3000/cart`,
+        });
+        res.json({ url: session.url });
+    } catch (e) {
+        res.status(500).json({ error: e.message });
+    }
+});
+
+const saveOrder = asyncWrapper(
+    async (req, res, next) => {
+
+        const {items, totalAmount, email} = req.body;
+        const orderItems = [];
+
+        for(const item of items){
+        const {title, quantity, price, mainImg} = item;
+        if (!title || !quantity || !price || !mainImg) {
+            const err = appError.create('Invalid item data', 400, httpStatusText.ERROR);
             return next(err);
         }
-
-        const orderItems = [];
-        
-        for(const item of items){
-            const {title, quantity, price, img} = item;
-            if (!title || !quantity || !price || !img) {
-                const err = appError.create('Invalid item data', 400, httpStatusText.ERROR);
-                return next(err);
-            }
-            const orderItem = {
-                title,
-                img,
-                price,
-                quantity
-            };
-            orderItems.push(orderItem);
+        const orderItem = {
+            title,
+            mainImg,
+            price,
+            quantity
         };
+        orderItems.push(orderItem);
+    };
 
-        const newOrder = new Order({
-            items: orderItems,
-            totalPrice,
-            email
-        });
+    const newOrder = new Order({
+        items: orderItems,
+        totalAmount,
+        email
+    });
+    await newOrder.save();
+    res.status(200).json('done')
+});
 
-        await newOrder.save();
-
-        res.status(201).json({status: httpStatusText.SUCCESS, data: newOrder});
-    }
-)
 
 module.exports = {
     getAllOrders,
     getMyOrders,
-    createOrder
+    createOrder,
+    saveOrder
 };

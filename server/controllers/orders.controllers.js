@@ -38,8 +38,8 @@ const createOrder = asyncWrapper(async (req, res, next) => {
                     quantity: item.quantity,
                 }
             }),
-            success_url: `http://localhost:3000/success`,
-            cancel_url: `http://localhost:3000/cart`,
+            success_url: `https://audio-phile-shop.vercel.app/success`,
+            cancel_url: `https://audio-phile-shop.vercel.app/cart`,
         });
         res.json({ url: session.url });
     } catch (e) {

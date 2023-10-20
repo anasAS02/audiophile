@@ -30,7 +30,6 @@ table button,
     color: white;
     transition: 0.3s;
     cursor: pointer;
-    border-radius: 6px;
     text-transform: uppercase;
     outline: none;
     border: none;
@@ -43,7 +42,7 @@ table button{
 .btn{
     background-color: green;
     position: absolute;
-    top: 45.7%;
+    top: 44.7%;
     right: 0;
 }
 

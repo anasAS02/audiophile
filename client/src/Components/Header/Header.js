@@ -32,7 +32,7 @@ export default function Header(){
     checkToken();
   }, [isLoggedIn, setIsLoggedIn])
 
-  const cart = useSelector((state) => state.cart);  
+  const cart = useSelector((state) => state.cart.cartItems);
   const [isMenuActive, setIsMenuActive] = useState(false);
   const [isTheCartActive, setIsTheCartActive] = useState(false);
   const [isListActive, setIsListActive] = useState(false);

@@ -1,5 +1,5 @@
 import "./product.css";
-import { Link } from "react-router-dom";
+import { Link, json } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { deleteFromCart, addToCart } from "../../rtk/Slices/cart-slice";
@@ -12,22 +12,22 @@ import { useParams } from 'react-router-dom';
 
 export default function Product(params){
     const { productId } = useParams();
-
     const [product, setProduct] = useState([]);
+    const cartItems = JSON.parse(localStorage.getItem('cartItems')) || [];
+
     const dispatch = useDispatch();
     const cart = useSelector((state) => state.cart);
     let quantity = 0;
 
     useEffect(() => {
         axios.get(GET_PRODUCT + productId).then((data) => setProduct(data.data.data));
-    }, []);
+    }, [productId]);
     
-    for(let i = 0; i < cart.length; i++){
-        if(cart[i]._id == product._id){
-            quantity = cart[i].quantity;
+    for(let i = 0; i < cartItems.length; i++){
+        if(cartItems[i]._id == product._id){
+            quantity = cartItems[i].quantity;
         }
     }
-
     return(
         <div className="pro">
             <Link className="back" to="/">Go Back</Link>

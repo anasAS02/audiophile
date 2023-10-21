@@ -31,7 +31,7 @@ const signUp = asyncWrapper(
         const token = jwt.sign({email: newUser.email, id: newUser._id, role: newUser.role}, process.env.JWT_SECRET_KEY, {expiresIn: '1hr'});
         newUser.token = token;
         await newUser.save();
-        res.status(201).json({status: httpStatusText.SUCCESS, data: {token, email: newUser.email, role: user.role}})
+        res.status(201).json({status: httpStatusText.SUCCESS, data: {token, email: newUser.email, role: newUser.role}})
     }
 )
 

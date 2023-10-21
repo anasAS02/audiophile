@@ -179,7 +179,7 @@ export default function Dashboard(){
                                 error && <p className='err'>{error}</p>
                             }
                             {
-                                success && <p className='success'>{success}</p>
+                                success && <p className='success-msg'>{success}</p>
                             }
                             <button type="submit">Add</button>
                         </form>

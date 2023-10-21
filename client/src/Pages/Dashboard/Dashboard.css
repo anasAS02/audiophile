@@ -105,12 +105,12 @@
     color: red;
 }
 
-.dashboard .success{
+.dashboard .success-msg{
     color: green;
 }
 
 .dashboard .err,
-.dashboard .success{
+.dashboard .success-msg{
     background-color: black;
     border-radius: 6px;
     padding: 5px;

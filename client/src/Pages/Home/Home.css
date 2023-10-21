@@ -142,7 +142,6 @@
 .home{
     display: block;
     position: relative;
-    width: calc(100% - 30px);
 }
 
 .home .text{

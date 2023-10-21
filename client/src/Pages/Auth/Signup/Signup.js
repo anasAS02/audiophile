@@ -19,8 +19,7 @@ export default function Signup(){
           email: '',
           password: '',
         },
-        onSubmit: async (values, e) => {
-            e.preventDefault();
+        onSubmit: async values => {
             try{
                 setIsLoading(true);
                 const res = await axios.post(SIGNUP, values);

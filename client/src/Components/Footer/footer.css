@@ -71,9 +71,6 @@ a{
 /* Start Responsive */
 
 @media(max-width: 900px){
-    .footer{
-        width: calc(100% - 10px);
-    }
     .footer .head{
         align-items: normal;
         flex-direction: column;

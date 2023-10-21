@@ -33,6 +33,7 @@ export default function Login(){
                     window.location.pathname = '/';
                 }catch(err){
                     setError(err.response.data.message)
+                    setIsLoading(false);
                 }
             },
         });

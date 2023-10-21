@@ -116,10 +116,6 @@
     padding: 5px;
 }
 
-.dashboard .orders{
-    width: 100%;
-}
-
 .dashboard .data{
     display: flex;
     justify-content: center;
@@ -165,4 +161,38 @@
 
 .dashboard .total h2:last-child{
     text-align: right;
+}
+
+.loading{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 1000;
+}
+
+.spinner {
+    margin-top: 12px;
+    border: 4px solid rgba(0, 0, 0, 0.3);
+    border-top: 4px solid #007bff;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    animation: spin 2s linear infinite;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+@media(max-width: 767px){   
+    .dashboard table{
+    font-size: 8px;
+    }
+
+    .dashboard .del-user{
+        padding: 3px;
+        font-size: 8px;
+    }
 }

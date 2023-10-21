@@ -34,9 +34,7 @@ export default function Signup(){
                 window.location.pathname = '/';
             }catch(err){
                 setError(err.response.data.message)
-                if(err.response.data.code == 500){
-                    setError('Email must be a Gmail address.');
-                }
+                setIsLoading(false);
             }
         },
       });

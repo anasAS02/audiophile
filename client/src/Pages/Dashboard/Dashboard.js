@@ -19,6 +19,7 @@ export default function Dashboard(){
 
     const [usersMode, setUsersMode] = useState(true);
     const [ordersMode, setOrdersMode] = useState(false);
+    const [isLoading, setIsLoading] = useState(false);
 
     const config = {
         headers: {
@@ -53,7 +54,9 @@ export default function Dashboard(){
         },
         onSubmit: async values => {
             try{
+                setIsLoading(true);
                 await axios.post(ADD_USER, values, config).then((data) => setUsers(data.data.data.users));
+                setIsLoading(false);
                 setSuccess('User has been created.');
                 setTimeout(() => {
                     setSuccess(null)
@@ -62,19 +65,19 @@ export default function Dashboard(){
                 formik.resetForm();
             }catch(err){
                 setError(err.response.data.message)
-                if(err.response.data.code == 500){
-                    setError('Email must be a Gmail address.');
-                }
+                setIsLoading(false)
             }
         },
       });
 
       const handleDeleteUser = async (id, email) => {
           try{
-              if(email === currentUser){
+                setIsLoading(true);
                 await axios.post(DELETE_USER, {id}, config).then((data) => setUsers(data.data.data.users))
+                setIsLoading(false);
+            if(email === currentUser){
                 handleLogout();
-              }
+            }
         }catch(err){
             console.log(err)
         }
@@ -95,6 +98,12 @@ export default function Dashboard(){
       }, 0);
     return(
         <div className='dashboard'>
+        {isLoading ?
+        <div className='loading'>
+            <div className="spinner"></div>
+        </div>
+        :
+        <></>}
             <div className='control'>
                 <button className={usersMode ? 'active' : ''} onClick={handleUsersMode}>users</button>
                 <button className={ordersMode ? 'active' : ''} onClick={handleOrdersMode}>orders</button>
@@ -129,7 +138,7 @@ export default function Dashboard(){
                                 <td>{user.email}</td>
                                 <td>{user.role}</td>
                                 <td>
-                                    <button className='del-user' onClick={() => handleDeleteUser(user._id, user.email)}>Delete</button>
+                                <button className='del-user' onClick={() => handleDeleteUser(user._id, user.email)}>Delete</button>
                                 </td>
                                 </tr>
                             ))}

@@ -11,7 +11,7 @@ import LoadingSpinner from '../../../Components/LoadingSpinner/LoadingSpinner';
 export default function Login(){
     const {isLoggedIn} = useAuth();
     const [error, setError] = useState(null);
-    const [isLoading, setIsLoading] = useState(true);
+    const [isLoading, setIsLoading] = useState(false);
 
     const formik = useFormik({
             initialValues: {

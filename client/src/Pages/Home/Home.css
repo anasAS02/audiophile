@@ -155,6 +155,15 @@
     align-items: center;
 }
 
+.products-container .box .text p{
+    font-size: 14px;
+}
+
+.products-container .box .text a{
+    padding: 5px;
+    font-size: 10px;
+}
+
 .home .text h1{
     font-size: 40px;
 }

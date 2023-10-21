@@ -9,9 +9,3 @@
     letter-spacing: 5px;
     text-transform: uppercase;
 }
-
-@media(max-width: 900px){
-    .title{
-        width: calc(100% - 10px);
-    }
-}

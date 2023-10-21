@@ -6,18 +6,22 @@ import axios from 'axios';
 import Cookies from 'js-cookie';
 import { useAuth } from '../../../Context/AuthContext';
 import { useState } from 'react';
+import LoadingSpinner from '../../../Components/LoadingSpinner/LoadingSpinner';
 
 export default function Login(){
     const {isLoggedIn} = useAuth();
     const [error, setError] = useState(null);
+    const [isLoading, setIsLoading] = useState(false);
 
     const formik = useFormik({
             initialValues: {
             email: '',
             password: '',
             },
-            onSubmit: async values => {
+            onSubmit: async (values, e) => {
+                e.preventDefault();
                 try{
+                    setIsLoading(true);
                     const res = await axios.post(LOGIN, values);
                     const token = res.data.data.token;
                     const email = res.data.data.email;
@@ -26,6 +30,7 @@ export default function Login(){
                     Cookies.set('email', email)
                     Cookies.set('role', role)
                     setError(null)
+                    setIsLoading(false);
                     window.location.pathname = '/';
                 }catch(err){
                     setError(err.response.data.message)
@@ -57,7 +62,10 @@ export default function Login(){
                 {
                     error && <p className='err'>{error}</p>
                 }
+                {isLoading ?
+                <LoadingSpinner /> :
                 <button type="submit">Login</button>
+                }
                 <p>Don't have an account? <Link to='/signup'>Signup</Link></p>
             </form>
         </div>

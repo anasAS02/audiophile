@@ -13,12 +13,6 @@
     border-radius: 16px;
 }
 
-@media(max-width: 767px){
-    .login form{
-        width: 100%;
-    }
-}
-
 .login form input{
     padding: 7px;
     border: none;

@@ -13,12 +13,6 @@
     border-radius: 16px;
 }
 
-@media(max-width: 767px){
-    .signup form{
-        width: 100%;
-    }
-}
-
 .signup form input{
     padding: 7px;
     border: none;

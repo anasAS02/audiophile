@@ -10,7 +10,7 @@ import axios from 'axios';
 import { GET_PRODUCT } from "../../Apis";
 import { useParams } from 'react-router-dom';
 
-export default function Product(params){
+export default function Product(){
     const { productId } = useParams();
     const [product, setProduct] = useState([]);
     const cartItems = JSON.parse(localStorage.getItem('cartItems')) || [];

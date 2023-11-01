@@ -68,6 +68,10 @@ a{
     margin-bottom: 0;
 }
 
+.footer > p span{
+    color: red;
+}
+
 /* Start Responsive */
 
 @media(max-width: 900px){

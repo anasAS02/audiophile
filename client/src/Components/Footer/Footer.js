@@ -30,7 +30,7 @@ export default function Footer(){
                 </Link>
                 </span>
             </div>
-            <p>Copyright 2023. All Rights Reserved</p>
+            <p>Copyrights reserved to <span>Anas</span> - 2023 &copy;</p>
         </div>
     );
 }

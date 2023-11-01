@@ -3,13 +3,11 @@ import { Link } from 'react-router-dom';
 import { useFormik } from 'formik';
 import axios from 'axios';
 import { SIGNUP } from '../../../Apis';
-import {useAuth} from '../../../Context/AuthContext.js';
 import Cookies from 'js-cookie';
 import { useState } from 'react';
 import LoadingSpinner from '../../../Components/LoadingSpinner/LoadingSpinner';
 
 export default function Signup(){
-  const {isLoggedIn} = useAuth();
   const [error, setError] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
 
@@ -40,12 +38,6 @@ export default function Signup(){
       });
 
     return(
-        isLoggedIn ? 
-        <div className=''>
-            <p>as</p>
-            <p>as</p>
-        </div>
-        :
         <div className='signup'>
             <form onSubmit={formik.handleSubmit}>
                 <label htmlFor="name">Your Name</label>

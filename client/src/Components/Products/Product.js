@@ -1,5 +1,5 @@
 import "./product.css";
-import { Link, json } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { deleteFromCart, addToCart } from "../../rtk/Slices/cart-slice";
@@ -9,10 +9,12 @@ import Footer from "../Footer/Footer";
 import axios from 'axios';
 import { GET_PRODUCT } from "../../Apis";
 import { useParams } from 'react-router-dom';
+import LoadingSpinner from "../LoadingSpinner/LoadingSpinner";
 
 export default function Product(){
     const { productId } = useParams();
     const [product, setProduct] = useState([]);
+    const [isLoading, setIsLoading] = useState(true);
     const cartItems = JSON.parse(localStorage.getItem('cartItems')) || [];
 
     const dispatch = useDispatch();
@@ -20,7 +22,7 @@ export default function Product(){
     let quantity = 0;
 
     useEffect(() => {
-        axios.get(GET_PRODUCT + productId).then((data) => setProduct(data.data.data));
+        axios.get(GET_PRODUCT + productId).then((data) => {setProduct(data.data.data); setIsLoading(false)});
     }, [productId]);
     
     for(let i = 0; i < cartItems.length; i++){
@@ -29,6 +31,10 @@ export default function Product(){
         }
     }
     return(
+        isLoading
+        ?
+        <LoadingSpinner />
+        :
         <div className="pro">
             <Link className="back" to="/">Go Back</Link>
         <div className="head">

@@ -10,7 +10,14 @@ const [isLoading, setIsLoading] = useState(true);
 
 useEffect(() => {
     axios.get(props.api).then((data) => {setProducts(data.data.data.products); setIsLoading(false)})
+    showDelayAlert()
 }, []);
+
+const showDelayAlert = () => {
+    setTimeout(() => {
+      alert("Please note: Data may take a few seconds to load due to server limitations.");
+    }, 3000);
+  };
 
 return(
     isLoading ?

@@ -1,4 +1,4 @@
-export const BASE_URL = 'https://audiophile-yv5c.onrender.com/';
+export const BASE_URL = 'https://audiophile-31mp.onrender.com/';
 export const SIGNUP = `${BASE_URL}auth/signup`;
 export const LOGIN = `${BASE_URL}auth/login`;
 export const REFRESH_TOKEN = `${BASE_URL}auth/refresh`;
